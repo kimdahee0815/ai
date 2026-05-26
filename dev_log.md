@@ -34,23 +34,27 @@ chatgpt는 더 발전된 Transformer + LLM 구조를 쓰는데, 응답에 5~15�
 | B    | CU   | eye-level | soft front | close-up, eye-level, soft front, cloudy afternoon crosswalk, single ray of sunlight, people waiting at traffic light, soft gray sky, cafe reflection on glass, cool wind, watercolor diary illustration |
 | C    | BS   | low       | backlit    | Bust shot, low angle, backlit, cloudy afternoon crosswalk, single ray of sunlight, people waiting at traffic light, soft gray sky, cafe reflection on glass, cool wind, watercolor diary illustration   |
 
-## scene_draft_seed.md - Day 2 Self 1 입력 자료
-
-### 일기 장면 후보 (5개)
-
-1. 횡단보도 앞에 서 있는 사람들이 저마다 휴대폰을 보거나 가방 끈을 고쳐 메고 있다 - 후보 샷/앵글/조명: WS / eye-level / soft
-2. 구름 사이로 햇빛 한 줄기가 비스듬히 내려오는 흐린 하늘 - 후보 샷/앵글/조명: WS / low / backlit
-3. 맞은편 카페 유리창에 내 모습이 흐릿하게 비치는 순간 - 후보 샷/앵글/조명: MS / eye-level / rim
-4. 초록 불이 켜지자 사람들이 일제히 움직이기 시작하고, 나도 그 흐름 속에 섞여 걷는다 - 후보 샷/앵글/조명: MS / eye-level / soft
-5. 발아래 보도블록의 줄이 규칙적으로 지나가는 클로즈업 - 후보 샷/앵글/조명: CU / high / soft
-
 ## Gpt-image-2 와 Fal.ai 의 차이점
 
 - gpt-image-2: response.data[0].b64_json (점 표기법)
 - fal.ai: result["images"][0]["url"] (딕셔너리 키 표기법)
 
-## Day 1 Self 2 기록
+## Day 1 Self 2 개발 기록
 
 - 오늘 추가 생성: Wide Shot, Close-Up, Bust Shot 으로 샷, 조명, 앵글을 각각 다르게 한 장면을 3장 추가로 생성했다.
 - 가장 차이가 크게 보인 변형: Bust Shot + Low Angle + Backlit 장면이었는데, 인물의 표정과 얼굴이 가장 크게 나타났고 기존에 배경위주였다면, 인물을 중심으로 구도가 바뀐 점이 가장 큰 변화였다.
 - Day 2에서 다시 쓰고 싶은 장면 후보: Close-Up + Eye-Level + soft light 장면에서는 전체적인 거리의 분위기도 나타나면서 인물의 감정까지 보여주어서 이 장면을 가장 쓰고 싶었다.
+
+# **DAY 2 SELF 1**
+
+## Day 2 self1 개발 기록
+
+- 오늘 만든 파일: scene_draft.md, day2_self1.py
+- 장면 1: 횡단보도 전체 풍경을 보여주는 도입부라 WS(Wide-Shot)와 24mm로 넓은 공간을 담았다.
+- 장면 2: 유리창 반사라는 좌우 대칭 구도가 핵심이라 symmetric과 rim light로 윤곽을 살렸다.
+- 장면 3: 신호가 바뀌며 사람들이 움직이는 역동적인 순간이라 low angle과 backlit으로 에너지를 강조했다.
+- 장면 4: 보도블록 줄이 시선을 이끄는 마무리 장면이라 CU(Close-Up)와 85mm로 발밑에 집중했다.
+- 가장 어려웠던 선택: 장면 2에서 카페 유리창 반사 장면을 MS로 할지 CU로 할지 고민했다. 반사된 주인공 모습 전체를 보여주고 싶어서 MS를 골랐지만, 유리창 질감을 더 강조하려면 CU도 괜찮을 것 같았다.
+- 다음 self2에서 확인할 것: scene_draft.md를 JSON으로 변환할 때 prompt_en 키워드가 이미지 생성에 충분한지 확인한다.
+- 막혔던 점: re.split으로 장면을 나눌 때 ## 장면 1 앞부분이 sections[0]에 들어가서
+  scene_idx + 1로 접근해야 한다는 걸 몰랐다.
