@@ -17,14 +17,3 @@
 medium shot, cloudy afternoon crosswalk, single ray of sunlight,
 people waiting at traffic light, soft gray sky, cafe reflection on glass,
 cool wind, watercolor diary illustration
-
-wide shot, eye-level, soft
-
-
-| 변형 | shot        | angle     | lighting   | 영문 프롬프트 1줄 |
-| ---- | ----------- | --------- | ---------- | ----------------- |
-| A    | WS          | eye-level | soft light | (학생 작성)       |
-| B    | CU          | eye-level | front      | (학생 작성)       |
-| C    | (학생 선택) | low       | backlit    | (학생 작성)       |
-
-**
