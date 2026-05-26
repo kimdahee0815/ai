@@ -1,0 +1,24 @@
+{
+  "scenes": [
+    {
+      "scene_id": 1,
+      "scene_kr": "흐린 오후 하늘 아래, 횡단보도 앞에 서 있는 사람들.",
+      "prompt_en": "medium shot of people waiting at a crosswalk under a cloudy afternoon sky with soft lighting."
+    },
+    {
+      "scene_id": 2,
+      "scene_kr": "구름 사이로 내리쬐는 햇빛이 비치는 모습.",
+      "prompt_en": "wide shot capturing a single ray of sunlight breaking through the clouds with a soft pastel palette."
+    },
+    {
+      "scene_id": 3,
+      "scene_kr": "카페 유리창에 비친 나의 모습.",
+      "prompt_en": "close-up of a reflection in a cafe window, showcasing a soft backlit lighting effect."
+    },
+    {
+      "scene_id": 4,
+      "scene_kr": "횡단보도를 걷는 사람들의 발아래 보도블록 패턴.",
+      "prompt_en": "medium shot focusing on the patterned pavement as people walk over it, captured with soft lighting."
+    }
+  ]
+}

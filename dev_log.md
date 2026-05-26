@@ -77,3 +77,19 @@ chatgpt는 더 발전된 Transformer + LLM 구조를 쓰는데, 응답에 5~15�
     1. FAL_KEY가 잘못 설정되어 있어 401 오류 발생 -> .env에서 키 교체로 해결
     2. scene_prompts.json 구조가 리스트가 아닌 딕셔너리라 `data[0]`이 KeyError -> `data["scenes"][0]["prompt_en"]`으로 수정
     3. `requests.get(url)` 반환값을 그대로 write_bytes에 넘겨 TypeError 발생 -> `.content` 추가로 해결
+
+# **DAY 3 SELF 1**
+
+## Day 2 Self 2 prompts 와 비교
+
+| 항목              | scene_prompts.json (사람)                                                                                                                                                         | scene_extracted.json (GPT)                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 장면 1 scene_kr   | 횡단보도 앞에 서 있는 사람들이 저마다 휴대폰을 보거나 가방 끈을 고쳐 메고 있다                                                                                                    | 흐린 오후 하늘 아래, 횡단보도 앞에 서 있는 사람들.                                            |
+| 장면 1 prompt_en  | people standing on sidewalk waiting at red traffic light before crosswalk, wide shot, eye-level, soft light, rule of thirds, 24mm, cloudy afternoon mood, watercolor illustration | medium shot of people waiting at a crosswalk under a cloudy afternoon sky with soft lighting. |
+| 샷·앵글·조명 어휘 | WS, eye-level, soft, rule of thirds, 24mm 명시                                                                                                                                    | medium shot, soft lighting만 명시                                                             |
+| 더 풍부한 쪽      | 사람 (shot, angle, composition, lens, mood 등 세부 어휘가 모두 포함됨)                                                                                                            | -                                                                                             |
+
+## Day 3 Self 1 개발 기록
+
+- agents/scene.py로 diary.md에서 4장면 scenes JSON을 추출했다.
+- scene_extracted.json을 Day 3 self 2 이미지 생성 입력으로 사용할 준비를 했다.
