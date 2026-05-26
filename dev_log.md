@@ -93,3 +93,26 @@ chatgpt는 더 발전된 Transformer + LLM 구조를 쓰는데, 응답에 5~15�
 
 - agents/scene.py로 diary.md에서 4장면 scenes JSON을 추출했다.
 - scene_extracted.json을 Day 3 self 2 이미지 생성 입력으로 사용할 준비를 했다.
+
+# **DAY 3 SELF 2**
+
+## Common Style of the painting
+
+| 요소           | 일관성 어휘 (모든 장면 공통)                    |
+| -------------- | ----------------------------------------------- |
+| 화풍           | watercolor diary illustration                   |
+| 색 팔레트      | muted gray-blue city palette, soft cloudy tones |
+| 인물/풍경 묘사 | quiet urban street scene, anonymous city crowd  |
+| 시간대 느낌    | cloudy afternoon, diffused natural light        |
+| 선 느낌        | soft pencil outline, gentle brush strokes       |
+
+**COMMON_STYLE:**
+watercolor diary illustration, muted gray-blue city palette, quiet urban street, cloudy afternoon mood, soft pencil outline
+
+## Day 3 Self 2 개발 기록
+
+- 사용 모델: gpt-image-2
+- COMMON_STYLE: watercolor diary illustration, muted gray-blue city palette, quiet urban street, cloudy afternoon mood, soft pencil outline
+- 생성 결과: outputs/2026-05-26/scene_1~4.png
+- 재시도한 장면: 없음
+- Day 4 입력 가능 여부: 가능
