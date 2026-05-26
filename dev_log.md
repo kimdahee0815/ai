@@ -47,7 +47,7 @@ chatgpt는 더 발전된 Transformer + LLM 구조를 쓰는데, 응답에 5~15�
 
 # **DAY 2 SELF 1**
 
-## Day 2 self1 개발 기록
+## Day 2 Self 1 개발 기록
 
 - 오늘 만든 파일: scene_draft.md, day2_self1.py
 - 장면 1: 횡단보도 전체 풍경을 보여주는 도입부라 WS(Wide-Shot)와 24mm로 넓은 공간을 담았다.
@@ -58,3 +58,22 @@ chatgpt는 더 발전된 Transformer + LLM 구조를 쓰는데, 응답에 5~15�
 - 다음 self2에서 확인할 것: scene_draft.md를 JSON으로 변환할 때 prompt_en 키워드가 이미지 생성에 충분한지 확인한다.
 - 막혔던 점: re.split으로 장면을 나눌 때 ## 장면 1 앞부분이 sections[0]에 들어가서
   scene_idx + 1로 접근해야 한다는 걸 몰랐다.
+
+# **DAY 2 SELF 2**
+
+## Fal.ai 와 Gpt-image-2의 차이점
+
+| 모델         | 분위기                                     | 디테일                                                                   | 응답 구조                  |
+| ------------ | ------------------------------------------ | ------------------------------------------------------------------------ | -------------------------- |
+| Gpt-image-2  | 그림일기처럼 따뜻하고 일러스트 느낌이 강함 | 전반적으로 잘 살아있으나 가방 고치기나 핸드폰 보기 같은 세부 행동은 부족 | response.data[0].url       |
+| FLUX-schnell | 실제 사진처럼 사실적이고 현실감이 강함     | 인물은 있으나 가방 고치기나 핸드폰 보기 같은 지정 행동이 표현되지 않음   | result["images"][0]["url"] |
+
+## Day 2 Self 2 개발 기록 - scene_prompts.json + fal.ai 첫 호출
+
+- 완료 시각: 11:06
+- 생성 파일: scene_prompts.json, day2_self2.py, outputs/scene01_fal.png
+- FLUX vs GPT-IMAGE-2 차이: FLUX는 사진처럼 사실적인 느낌이 강했고, GPT-IMAGE-2는 그림일기 같은 일러스트 느낌이 강했다. 디테일 면에서는 둘 다 가방 고치기나 핸드폰 보기 같은 세부 행동은 잘 표현되지 않았다.
+- 막힌 부분:
+    1. FAL_KEY가 잘못 설정되어 있어 401 오류 발생 -> .env에서 키 교체로 해결
+    2. scene_prompts.json 구조가 리스트가 아닌 딕셔너리라 `data[0]`이 KeyError -> `data["scenes"][0]["prompt_en"]`으로 수정
+    3. `requests.get(url)` 반환값을 그대로 write_bytes에 넘겨 TypeError 발생 -> `.content` 추가로 해결
