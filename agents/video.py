@@ -32,4 +32,5 @@ async def result_kling(request_id: str) -> str:
         KLING_MODEL,
         request_id=request_id
     )
+    print(result)
     return result["video"]["url"]
