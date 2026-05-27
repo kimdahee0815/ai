@@ -17,4 +17,19 @@ def submit_kling(image_url: str, prompt: str, duration: int = 5) -> str:
     )
     return handler.request_id
 
-# status_kling, result_kling 함수는 self2에서 작성
+async def status_kling(request_id: str) -> str:
+    """Kling status 1회 조회. 상태 문자열 반환."""
+    status = await fal_client.status_async(
+        KLING_MODEL,
+        request_id=request_id,
+        with_logs=False
+    )
+    return type(status).__name__
+
+async def result_kling(request_id: str) -> str:
+    """Kling 완료된 영상 결과 받기. 영상 URL 반환."""
+    result = await fal_client.result_async(
+        KLING_MODEL,
+        request_id=request_id
+    )
+    return result["video"]["url"]

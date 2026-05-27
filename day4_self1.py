@@ -4,9 +4,7 @@ import fal_client
 
 from agents.video import submit_kling
 
-# IMAGE_PATH = Path("outputs") / "2026-05-27" / "scene_1.png"
-
-IMAGE_PATH = Path("outputs") / "scene01_dalle.png"
+IMAGE_PATH = Path("outputs") / "2026-05-27" / "scene_1.png"
 
 image_url = fal_client.upload_file(str(IMAGE_PATH))
 

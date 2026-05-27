@@ -74,20 +74,20 @@ chatgpt는 더 발전된 Transformer + LLM 구조를 쓰는데, 응답에 5~15�
 - 생성 파일: scene_prompts.json, day2_self2.py, outputs/scene01_fal.png
 - FLUX vs GPT-IMAGE-2 차이: FLUX는 사진처럼 사실적인 느낌이 강했고, GPT-IMAGE-2는 그림일기 같은 일러스트 느낌이 강했다. 디테일 면에서는 둘 다 가방 고치기나 핸드폰 보기 같은 세부 행동은 잘 표현되지 않았다.
 - 막힌 부분:
-    1. FAL_KEY가 잘못 설정되어 있어 401 오류 발생 -> .env에서 키 교체로 해결
-    2. scene_prompts.json 구조가 리스트가 아닌 딕셔너리라 `data[0]`이 KeyError -> `data["scenes"][0]["prompt_en"]`으로 수정
-    3. `requests.get(url)` 반환값을 그대로 write_bytes에 넘겨 TypeError 발생 -> `.content` 추가로 해결
+  1. FAL_KEY가 잘못 설정되어 있어 401 오류 발생 -> .env에서 키 교체로 해결
+  2. scene_prompts.json 구조가 리스트가 아닌 딕셔너리라 `data[0]`이 KeyError -> `data["scenes"][0]["prompt_en"]`으로 수정
+  3. `requests.get(url)` 반환값을 그대로 write_bytes에 넘겨 TypeError 발생 -> `.content` 추가로 해결
 
 # **DAY 3 SELF 1**
 
 ## Day 2 Self 2 prompts 와 비교
 
-| 항목              | scene_prompts.json (사람)                                                                                                                                                         | scene_extracted.json (GPT)                                                                    |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| 장면 1 scene_kr   | 횡단보도 앞에 서 있는 사람들이 저마다 휴대폰을 보거나 가방 끈을 고쳐 메고 있다                                                                                                    | 흐린 오후 하늘 아래, 횡단보도 앞에 서 있는 사람들.                                            |
-| 장면 1 prompt_en  | people standing on sidewalk waiting at red traffic light before crosswalk, wide shot, eye-level, soft light, rule of thirds, 24mm, cloudy afternoon mood, watercolor illustration | medium shot of people waiting at a crosswalk under a cloudy afternoon sky with soft lighting. |
+| 항목                | scene_prompts.json (사람)                                                                                                                                                         | scene_extracted.json (GPT)                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 장면 1 scene_kr     | 횡단보도 앞에 서 있는 사람들이 저마다 휴대폰을 보거나 가방 끈을 고쳐 메고 있다                                                                                                    | 흐린 오후 하늘 아래, 횡단보도 앞에 서 있는 사람들.                                            |
+| 장면 1 prompt_en    | people standing on sidewalk waiting at red traffic light before crosswalk, wide shot, eye-level, soft light, rule of thirds, 24mm, cloudy afternoon mood, watercolor illustration | medium shot of people waiting at a crosswalk under a cloudy afternoon sky with soft lighting. |
 | 샷·앵글·조명 어휘 | WS, eye-level, soft, rule of thirds, 24mm 명시                                                                                                                                    | medium shot, soft lighting만 명시                                                             |
-| 더 풍부한 쪽      | 사람 (shot, angle, composition, lens, mood 등 세부 어휘가 모두 포함됨)                                                                                                            | -                                                                                             |
+| 더 풍부한 쪽        | 사람 (shot, angle, composition, lens, mood 등 세부 어휘가 모두 포함됨)                                                                                                            | -                                                                                             |
 
 ## Day 3 Self 1 개발 기록
 
@@ -116,3 +116,29 @@ watercolor diary illustration, muted gray-blue city palette, quiet urban street,
 - 생성 결과: outputs/2026-05-26/scene_1~4.png
 - 재시도한 장면: 없음
 - Day 4 입력 가능 여부: 가능
+
+# DAY 4 SELF 1
+
+## Day 4 Self 1 개발 기록
+
+- 동기 호출은 결과를 바로 기다리고, 비동기 호출은 task_id를 받아 나중에 status/result로 확인한다.
+- 가드레일 4종은 반복 횟수, 대기 시간, 완료 조건, 비용 상한을 제한해 무한 대기와 비용 초과를 막는다.
+
+# DAY 4 SELF 2
+
+## Day 4 Self 2 개발 기록
+
+### 비동기 폴링 vs 동기 폴링
+
+- 동기 폴링: `fal_client.status()` / `fal_client.result()` - 일반 `def` 안에서 바로 호출
+- 비동기 폴링: `await fal_client.status_async()` / `await fal_client.result_async()` - `async def` + `await` 필요
+- Kling은 submit 직후 영상 URL을 주지 않으므로, status가 COMPLETED될 때까지 폴링한 뒤 result로 URL을 받아야 한다
+
+### picture_diary_pipeline 인터페이스
+
+`picture_diary_pipeline(diary_text, model, animate_first)`는 아래 흐름을 하나로 묶는다:
+
+1. 텍스트 : `extract_scenes()` => 장면 4개 생성
+2. 장면 : `batch_generate()` => 이미지 생성
+3. 첫 번째 이미지 : Kling submit/폴링 => 영상 생성 (`animate_first=True`일 때)
+4. 전체 메타데이터 : `results.json` 저장
