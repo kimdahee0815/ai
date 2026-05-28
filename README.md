@@ -14,7 +14,9 @@ python pipeline.py
 
 ## 결과 미리보기
 
-![scene_1](outputs/scene01_dalle.png)
+![scene_1](scene01_dalle.png)
+
+<video src="scene_1.mp4" controls width="480"></video>
 
 ## 운영 지표
 
@@ -92,4 +94,4 @@ picture-diary/
 
 ### **GitHub URL**
 
-https://github.com/kimdahee0815/picture-diary.git
+`https://github.com/kimdahee0815/picture-diary`
