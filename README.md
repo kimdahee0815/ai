@@ -16,7 +16,8 @@ python pipeline.py
 
 ![scene_1](outputs/scene01_dalle.png)
 
-<video src="outputs/2026-05-27/scene_1.mp4" controls width="480"></video>
+<video src="https://github.com/user-attachments/assets/a4ae2c70-ae12-4a3b-a5d8-9b8916099da1" controls width="480"></video>
+
 
 ## 운영 지표
 
