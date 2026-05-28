@@ -14,9 +14,9 @@ python pipeline.py
 
 ## 결과 미리보기
 
-![scene_1](scene01_dalle.png)
+![scene_1](outputs/scene01_dalle.png)
 
-<video src="scene_1.mp4" controls width="480"></video>
+<video src="outputs/2026-05-28/scene_1.mp4" controls width="480"></video>
 
 ## 운영 지표
 
