@@ -35,3 +35,12 @@ def picture_diary_pipeline(diary_text: str, model: str = "flux", animate_first: 
         encoding="utf-8"
     )
     return {"scenes": scenes, "images": metadata["image_paths"], "video": metadata["video_path"]}
+
+def build_product_prompt(desc: str, background:str) -> str:
+    """제품 설명을 카탈로그 스타일 프롬프트로 변환"""
+    return (
+        f"{desc}, 제품 사진, "
+        f"중앙 배치, 깔끔한 흰색 배경, {background}"
+        "부드러운 그림자가 있는 스튜디오 조명, "
+        "클로즈업, 50mm 매크로 렌즈, 8k 화질, 상업용 카탈로그 스타일"
+    )

@@ -30,6 +30,26 @@
 * **도메인 확장** : emoji 도메인으로 실제 이미지 생성 후 product, travel과 결과 비교
 * **seed 범위 확대** : A/B를 넘어 seed 5개 이상으로 분산 측정, P95 외에 중앙값도 함께 기록
 
+
+## 13종 비유 카드 — 셀프 실습 연결
+ 
+| # | 비유 카드 | 핵심 개념 | 셀프 실습 연결 | 연결 파일 |
+|---|---|---|---|---|
+| 1 | 전화기 게임 (귓속말 전달) | RNN - 순차 처리, 앞 내용 소실 | GPT 프롬프트는 한 호출에 완결 → RNN 순차 전달 불필요 | `diary.md` |
+| 2 | 비서의 포스트잇 | LSTM - 중요 정보만 선택 기억 | 장면 추출 시 핵심 어휘(shot/angle/lighting)만 압축해 JSON에 저장 | `agents/scene.py` |
+| 3 | 형광펜 치기 | Attention - 중요 단어에 가중치 | 프롬프트에서 `"golden hour"`, `"watercolor"` 같은 핵심 어휘가 이미지 결과를 결정 | `scene_prompts.json` |
+| 4 | 둥근 테이블 회의 | Transformer - 병렬 Self-Attention | GPT 응답에 5~15초 걸리는 이유 = 병렬 처리 + 대규모 추론 | `pipeline.py` |
+| 5 | 거대한 도서관 사서 | LLM - 사전학습 + 스케일 | `extract_scenes()`가 일기 문장을 장면 JSON으로 변환할 수 있는 근거 | `agents/scene.py` |
+| 6 | 잉크 퍼짐 되감기 | Diffusion - 노이즈 점진적 제거 | GPT/FLUX가 프롬프트를 받아 노이즈에서 이미지를 복원하는 원리 | `agents/image.py` |
+| 7 | 위조지폐범 vs 경찰 | GAN - 생성자/판별자 경쟁 | FLUX-schnell 내부 GAN 구조 → 사실적 이미지 출력 | `agents/image.py` |
+| 8 | 잠긴 서랍 | `.env` - 비밀값 격리 | `OPENAI_API_KEY`, `FAL_KEY`를 `.env`에 보관, `.gitignore`로 push 차단 | `.env`, `check_git.py` |
+| 9 | 작업실 | `.venv` - 프로젝트 격리 환경 | `uv venv`로 의존성 충돌 없이 패키지 관리 | `requirements.txt` |
+| 10 | 작업실 관리인 | `uv` - 패키지 설치·관리 | `uv pip install`로 fal-client, openai 등 설치 | `requirements.txt` |
+| 11 | 택배 기사 (task_id 전달) | 비동기 폴링 - submit → status → result | Kling 영상 생성: `submit_kling()` → `status_kling()` 루프 → `result_kling()` | `agents/video.py` |
+| 12 | 신호등 (가드레일) | 가드레일 4종 - 반복/시간/조건/비용 제한 | `check_max_iter`, `check_timeout`, `check_predicate`, `check_budget`으로 무한 대기 방지 | `guardrails.py` |
+| 13 | 보석 가게 손님 | Self-Attention - 필요한 진열대만 참조 | 도메인별 프롬프트(product/emoji/travel)에서 shot/lighting 어휘만 선택적으로 조합 | `domains/*.json` |
+
+
 ## GitHub 저장소
 
 `https://github.com/kimdahee0815/picture-diary`
