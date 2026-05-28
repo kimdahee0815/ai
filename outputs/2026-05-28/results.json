@@ -1,0 +1,32 @@
+{
+  "diary_first_line": "**#** Day 1 그림일기 원문",
+  "scenes": [
+    {
+      "scene_id": 1,
+      "scene_kr": "흐린 오후 하늘 아래 횡단보도에서 사람들 대기 중.",
+      "prompt_en": "Medium shot of a cloudy afternoon crosswalk with people waiting at the traffic light, soft gray sky and a single ray of sunlight breaking through."
+    },
+    {
+      "scene_id": 2,
+      "scene_kr": "카페 유리창에 비친 내 모습.",
+      "prompt_en": "Close-up of a reflection in a cafe glass showcasing a blurred self-portrait, backlit lighting from the cafe's warm interior."
+    },
+    {
+      "scene_id": 3,
+      "scene_kr": "신호가 바뀌자 사람들이 일제히 움직이는 장면.",
+      "prompt_en": "Wide shot of people starting to move as the traffic light turns green, capturing the bustling atmosphere with soft pastel colors."
+    },
+    {
+      "scene_id": 4,
+      "scene_kr": "보도블록의 규칙적인 줄을 바라보며 걷는 나.",
+      "prompt_en": "Medium shot of feet walking on the patterned pavement, focusing on the rhythm of the blocks with cool wind, soft lighting enhancing the watercolor effect."
+    }
+  ],
+  "image_paths": [
+    "outputs\\2026-05-27\\scene_01.png",
+    "outputs\\2026-05-27\\scene_02.png",
+    "outputs\\2026-05-27\\scene_03.png",
+    "outputs\\2026-05-27\\scene_04.png"
+  ],
+  "video_path": null
+}

@@ -1,0 +1,32 @@
+{
+  "diary_first_line": "**#** Day 1 그림일기 원문",
+  "scenes": [
+    {
+      "scene_id": 1,
+      "scene_kr": "흐린 오후, 사람들의 모습이 보이는 횡단보도.",
+      "prompt_en": "Medium shot of a cloudy afternoon crosswalk with people waiting at a traffic light, soft lighting."
+    },
+    {
+      "scene_id": 2,
+      "scene_kr": "햇빛이 비스듬히 내려오는 장면.",
+      "prompt_en": "High angle shot of a single ray of sunlight breaking through the gray clouds, soft pastel palette."
+    },
+    {
+      "scene_id": 3,
+      "scene_kr": "카페 유리창에 비친 모습.",
+      "prompt_en": "Close-up of a cafe reflection on glass with soft rim lighting, capturing the essence of the moment."
+    },
+    {
+      "scene_id": 4,
+      "scene_kr": "보도블록의 규칙적인 패턴을 바라보며 걷는 모습.",
+      "prompt_en": "Medium shot of feet walking over patterned sidewalk blocks, eye-level perspective with soft lighting."
+    }
+  ],
+  "image_paths": [
+    "outputs\\2026-05-27\\scene_01.png",
+    "outputs\\2026-05-27\\scene_02.png",
+    "outputs\\2026-05-27\\scene_03.png",
+    "outputs\\2026-05-27\\scene_04.png"
+  ],
+  "video_path": null
+}
