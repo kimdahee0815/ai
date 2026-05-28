@@ -1,0 +1,35 @@
+{
+    "domain": "travel",
+    "version": "day5-self1",
+    "prompt_style": {
+        "shot": "wide shot, landscape, establishing shot",
+        "angle": "eye-level, low angle for drama",
+        "lighting": "golden hour, natural light, magic hour glow",
+        "lens_or_style": "24mm wide lens, watercolor illustration style, travel journal aesthetic",
+        "mood": "scenic, wanderlust, warm nostalgia, atmospheric"
+    },
+    "scenes": [
+        {
+            "id": "scene_01",
+            "diary_sentence": "해질 무렵 골목길을 걸었다. 오렌지빛 하늘 아래 낡은 건물들이 따뜻하게 빛났다.",
+            "visual_focus": "narrow cobblestone alley at golden hour, warm orange sky, aged buildings",
+            "prompt_addons": [
+                "golden hour lighting, long warm shadows",
+                "wide establishing shot, sense of depth",
+                "travel journal watercolor style, soft grain texture"
+            ],
+            "negative_prompt": "people crowding, neon signs, modern cars, overcast sky, flat lighting, blurry"
+        },
+        {
+            "id": "scene_02",
+            "diary_sentence": "이른 아침, 안개 낀 산 정상에 도착했다. 구름 위에 서 있는 것 같았다.",
+            "visual_focus": "misty mountain summit at dawn, low clouds, lone figure silhouette",
+            "prompt_addons": [
+                "early morning blue hour, soft fog rolling over peaks",
+                "wide landscape shot, dramatic sky",
+                "muted cool tones, cinematic travel photography"
+            ],
+            "negative_prompt": "harsh sunlight, urban elements, crowds, oversaturated colors, flat sky"
+        }
+    ]
+}

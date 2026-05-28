@@ -142,3 +142,16 @@ watercolor diary illustration, muted gray-blue city palette, quiet urban street,
 2. 장면 : `batch_generate()` => 이미지 생성
 3. 첫 번째 이미지 : Kling submit/폴링 => 영상 생성 (`animate_first=True`일 때)
 4. 전체 메타데이터 : `results.json` 저장
+
+# DAY 5 SELF 1
+
+## Day 5 Self 1 개발 기록
+
+- 선택 도메인: travel
+- seed A/B: 42 / 137
+- A 호출 수: 3
+- B 호출 수: 3
+- p95_latency_s: 2.933
+- cost_per_image: $0.003
+- total_cost_usd: $0.136
+- 다음 작업: README 운영 지표 표에 위 값을 반영

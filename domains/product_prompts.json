@@ -1,0 +1,35 @@
+{
+    "domain": "product",
+    "version": "day5-self1",
+    "prompt_style": {
+        "shot": "close-up, macro",
+        "angle": "eye-level, slight high angle",
+        "lighting": "studio lighting, soft box, soft shadows",
+        "lens_or_style": "50mm macro lens, shallow depth of field",
+        "mood": "clean, minimal, catalog-ready, crisp"
+    },
+    "scenes": [
+        {
+            "id": "scene_01",
+            "diary_sentence": "새로 산 노트와 펜을 책상 위에 올려두었다. 깔끔하게 정돈된 모습이 마음에 든다.",
+            "visual_focus": "stationery flat lay — notebook and pen on white surface",
+            "prompt_addons": [
+                "product photography, white seamless background",
+                "soft diffused studio light, no harsh shadows",
+                "sharp focus on product, bokeh background"
+            ],
+            "negative_prompt": "blurry, cluttered background, overexposed, people, hands, text overlay"
+        },
+        {
+            "id": "scene_02",
+            "diary_sentence": "작은 도자기 컵을 클로즈업 사진으로 담았다. 질감과 색감이 살아있는 사진을 원했다.",
+            "visual_focus": "ceramic mug close-up, texture detail, matte glaze",
+            "prompt_addons": [
+                "macro shot, extreme detail on surface texture",
+                "warm studio lighting, subtle rim light",
+                "isolated on light gray background, product catalog style"
+            ],
+            "negative_prompt": "busy background, motion blur, dark shadows, low resolution, props"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "domain": "emoji",
+    "version": "day5-self1",
+    "prompt_style": {
+        "shot": "face close-up, icon view, full-body icon",
+        "angle": "front-facing, straight-on",
+        "lighting": "flat lighting, even illumination, no shadows",
+        "lens_or_style": "vector illustration style, line drawing, simple flat color",
+        "mood": "cute, expressive, cheerful, kawaii"
+    },
+    "scenes": [
+        {
+            "id": "scene_01",
+            "diary_sentence": "오늘 너무 행복해서 방방 뛰고 싶은 기분이다. 양 볼이 빨개지는 느낌이다.",
+            "visual_focus": "round cute character face, big eyes, rosy cheeks, huge smile",
+            "prompt_addons": [
+                "transparent background, sticker style",
+                "bold clean outlines, flat 2D illustration",
+                "pastel color palette, pink blush marks on cheeks"
+            ],
+            "negative_prompt": "realistic, 3D render, shadows, dark colors, complex background, photo"
+        },
+        {
+            "id": "scene_02",
+            "diary_sentence": "피곤해서 눈이 반쯤 감겼다. 졸린 표정의 이모티콘이 딱 맞을 것 같다.",
+            "visual_focus": "sleepy character, half-closed eyes, small zzz bubbles floating",
+            "prompt_addons": [
+                "transparent PNG background, chat sticker format",
+                "soft muted color palette, light blue tones",
+                "simple line art, cute chibi proportion"
+            ],
+            "negative_prompt": "realistic face, harsh lines, dark mood, complex shading, background pattern"
+        }   
+    ]
+}
