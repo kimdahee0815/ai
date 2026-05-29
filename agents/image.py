@@ -35,14 +35,32 @@ def call_flux(prompt: str, seed: int = 42) -> str:
     fal_image_url = result["images"][0]["url"]
     return fal_image_url
 
-def generate_image(prompt: str, model: str = "gpt", seed: int = 42) -> str:
-    """모델 분기 함수. DALL-E 또는 FLUX 호출."""
+# def generate_image(prompt: str, model: str = "gpt", seed: int = 42) -> str:
+#     """모델 분기 함수. GPT 또는 FLUX 호출."""
+#     model = model.lower()
+    
+#     if model == "gpt":
+#         result = call_dalle(prompt)
+#     else:
+#         result = call_flux(prompt, seed)
+#     return result
+
+def generate_image(prompt: str, model: str = "gpt", output_path: str="", seed: int = 42) -> str:
+    """모델 분기 함수. GPT 또는 FLUX 호출."""
     model = model.lower()
     
     if model == "gpt":
         result = call_dalle(prompt)
+        if output_path != "":
+            image_bytes=base64.b64decode(result)
+            output_path.write_bytes(image_bytes)
+            return output_path
     else:
         result = call_flux(prompt, seed)
+        if output_path != "":
+            image_bytes=requests.get(result)
+            output_path.write_bytes(image_bytes.content)
+            return output_path
     return result
 
 def save_image(model:str, data: str, out_path: Path) -> None:
@@ -60,7 +78,7 @@ def batch_generate(scenes: list[dict], model: str, out_dir: Path) -> list[Path]:
     saved: list[Path] = []
     for idx, scene in enumerate(scenes):
         try:
-            result = generate_image(scene["prompt_en"] + ", " + COMMON_STYLE, model, scene["scene_id"])
+            result = generate_image(prompt=scene["prompt_en"] + ", " + COMMON_STYLE, model=model, seed=scene["scene_id"])
             filename = f"scene_{scene['scene_id']:02d}.png"
             save_image(model, result, out_dir / filename)
             saved.append(out_dir / filename)

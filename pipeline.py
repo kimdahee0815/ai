@@ -15,7 +15,7 @@ def picture_diary_pipeline(diary_text: str, model: str = "flux", animate_first: 
 
     scenes = extract_scenes(diary_text)
 
-    image_paths = batch_generate(scenes, model, out_dir)
+    image_paths = batch_generate(scenes=scenes, model=model, out_dir=out_dir)
     
     video_url = None
     if animate_first == True:

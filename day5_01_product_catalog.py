@@ -2,18 +2,24 @@ from typing import Literal
 
 shot_type= Literal["close-up", "macro", "medium_shot", "full_shot"]
 
-products=[
+products = [
     {
         "name": "earbuds",
-        "desc": "화이트 색상, 미니멀 디자인, 충전 케이스 포함"
+        "desc": "화이트 색상, 미니멀 디자인, 충전 케이스 포함",
+        "size": "small",   
+        "angle": "small"   
     },
     {
         "name": "tumbler",
-        "desc": "매트 블랙, 스테인리스 소재, 450ml 용량"
-    }, 
+        "desc": "매트 블랙, 스테인리스 소재, 450ml 용량",
+        "size": "medium",
+        "angle": "tall"
+    },
     {
         "name": "keyboard",
-        "desc": "기계식, 화이트 키캡, RGB 백라이트, 텐키리스"
+        "desc": "기계식, 화이트 키캡, RGB 백라이트, 텐키리스",
+        "size": "medium",
+        "angle": "flat"
     }
 ]
 

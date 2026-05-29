@@ -61,11 +61,11 @@ if __name__ == "__main__":
             break
         time.sleep(0.5)
 
-    asyncio.run(poll_and_download(task_id))
+    # asyncio.run(poll_and_download(task_id))
 
     diary_text = Path("diary.md").read_text(encoding="utf-8")
 
-    result = picture_diary_pipeline(diary_text=diary_text, animate_first=False)
+    result = picture_diary_pipeline(diary_text=diary_text, animate_first=True)
 
     print("\n" + "="*50)
     print("📔 그림일기 생성 완료")
